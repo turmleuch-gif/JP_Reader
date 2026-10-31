@@ -1,5 +1,5 @@
 # JP Reader
-This is a AI generated Browser Extension for hightlighting and reviewing seen Japanese Words.
+This is an AI generated Browser Extension for hightlighting and reviewing seen Japanese Words.
 
 ## Dictionary data
 This product uses the JMdict/EDICT dictionary files, which are the property of the Electronic Dictionary Research and Development Group, and are used in conformance with the Group's licence.
