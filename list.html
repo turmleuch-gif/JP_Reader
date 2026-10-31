@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JP Word Tracker: word list</title>
+  <style>
+    :root {
+      --bg: #ffffff; --fg: #1d2330; --muted: #6b7385; --line: #e3e6ee;
+      --head: #f4f6fb; --hover: #f8faff; --accent: #2f7de1;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #16181d; --fg: #e6e9f0; --muted: #98a0b3; --line: #2b3040;
+        --head: #1e222b; --hover: #1a1e27; --accent: #6aa8ff;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 32px 20px 64px; background: var(--bg); color: var(--fg);
+      font: 15px/1.5 system-ui, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+    }
+    main { max-width: 1000px; margin: 0 auto; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    .sub { color: var(--muted); margin: 0 0 20px; }
+    .wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: var(--hover); }
+    th { background: var(--head); padding: 0; white-space: nowrap; }
+    th button {
+      all: unset; box-sizing: border-box; display: block; width: 100%; padding: 10px 14px;
+      cursor: pointer; font-weight: 600; user-select: none;
+    }
+    th button:hover, th button:focus-visible { color: var(--accent); }
+    th .arrow { display: inline-block; width: 1em; color: var(--accent); }
+    td.kanji { font-size: 18px; white-space: nowrap; }
+    td.num, td.date { white-space: nowrap; }
+    td.num { font-variant-numeric: tabular-nums; }
+    td.meaning { min-width: 240px; }
+    .empty { text-align: center; color: var(--muted); padding: 40px 14px; }
+    nav { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    nav a, nav span {
+      padding: 4px 10px; border-radius: 6px; border: 1px solid var(--line);
+      text-decoration: none; color: var(--accent); font-variant-numeric: tabular-nums;
+    }
+    nav a:hover { background: var(--head); }
+    nav span.current { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600; }
+    nav span.gap { border: 0; color: var(--muted); padding: 4px 2px; }
+    .count { color: var(--muted); margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Word list</h1>
+    <p class="sub" id="summary">Loading…</p>
+    <div class="wrap">
+      <table>
+        <thead><tr id="head"></tr></thead>
+        <tbody id="body"></tbody>
+      </table>
+    </div>
+    <nav id="pager" aria-label="Pages"></nav>
+  </main>
+  <script src="list.js"></script>
+</body>
+</html>
